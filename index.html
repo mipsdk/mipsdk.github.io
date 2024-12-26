@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maven-Release</title>
+    <base href="https://maven-release.bitbucket.io/"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: auto;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 2px 8px 2px 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Maven Files</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>File Path</th>
+                <th>Size</th>
+                <th>Modified Time</th>
+            </tr>
+        </thead>
+        <tbody id="fileTableBody">
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Function to fetch and render JSON data
+        function fetchAndRenderTable() {
+            fetch('config/file_list.json?timesptamp=' + new Date().getTime())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    renderTable(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching the JSON data:', error);
+                });
+        }
+
+        // Function to render the JSON data into the table
+        function renderTable(data) {
+            const tableBody = document.getElementById('fileTableBody');
+            data.forEach(file => {
+                if (file.path != "config/file_list.json" && file.path != "index.html" && file.path != "file_list.sh") {
+                    const row = document.createElement('tr');
+
+                    const pathCell = document.createElement('td');
+                    pathCell.innerHTML = "<a href='" + file.path + "' target='_blank'>" + file.path + "</a>";
+                    row.appendChild(pathCell);
+
+                    const sizeCell = document.createElement('td');
+                    sizeCell.textContent = file.size;
+                    row.appendChild(sizeCell);
+
+                    const modifiedTimeCell = document.createElement('td');
+                    modifiedTimeCell.textContent = file.modified_time;
+                    row.appendChild(modifiedTimeCell);
+
+                    tableBody.appendChild(row);
+                }
+            });
+        }
+
+        // Fetch and render the table when the page loads
+        document.addEventListener('DOMContentLoaded', fetchAndRenderTable);
+    </script>
+</body>
+</html>
