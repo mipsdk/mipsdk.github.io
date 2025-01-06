@@ -23,7 +23,6 @@ echo "[" > $JSON_FILE
 # 遍历所有文件并写入 JSON
 FIRST=true
 for FILE in $FILES; do
-  echo file=$FILE
   if [[ "${FILE##*.}" == "aar" ]] || [[ "${FILE##*.}" == "gradle" ]] ; then
     if [ "$FIRST" = true ]; then
       FIRST=false
