@@ -35,11 +35,11 @@
         {
           "name": "mipsdk-1.2.1.aar",
           "url": "mipsdk-1.2.1.aar",
-          "size": 263940,
-          "sha512": "e8e76c26756831c73743bb36388ed38c58c74f1ca10266630b377bb21702a1d131200d8287b17fa1517914794e1b59e6a99e914221a86322ed36814a216aa78b",
-          "sha256": "c6d3b2143da1ec816d7506c912218052c1f877a56e35177e101b8bbf6aab5da2",
-          "sha1": "0cc149bd4a4333389b97eeb21a7654ba542c68cc",
-          "md5": "03fe62dbe768c573df1027f1f402860d"
+          "size": 264059,
+          "sha512": "9de096c65d2256f37bfbef3a5ceeff1ee1a57fc32ed394b7ca02e6105a973e1ef01e215b1d1eb9fa4f8a214dc3315d5337f4c47ce96498e9863c0dee06ce6318",
+          "sha256": "ab7dafb1ffada1ef5b5e38ea85cec2967782371607434f1f3322497b1d0e63ca",
+          "sha1": "862320178695f599d6225ad3ea026120a6d1f4a4",
+          "md5": "bc0129ecb537ba2d229bf56a1945640a"
         }
       ]
     },
@@ -242,11 +242,11 @@
         {
           "name": "mipsdk-1.2.1.aar",
           "url": "mipsdk-1.2.1.aar",
-          "size": 263940,
-          "sha512": "e8e76c26756831c73743bb36388ed38c58c74f1ca10266630b377bb21702a1d131200d8287b17fa1517914794e1b59e6a99e914221a86322ed36814a216aa78b",
-          "sha256": "c6d3b2143da1ec816d7506c912218052c1f877a56e35177e101b8bbf6aab5da2",
-          "sha1": "0cc149bd4a4333389b97eeb21a7654ba542c68cc",
-          "md5": "03fe62dbe768c573df1027f1f402860d"
+          "size": 264059,
+          "sha512": "9de096c65d2256f37bfbef3a5ceeff1ee1a57fc32ed394b7ca02e6105a973e1ef01e215b1d1eb9fa4f8a214dc3315d5337f4c47ce96498e9863c0dee06ce6318",
+          "sha256": "ab7dafb1ffada1ef5b5e38ea85cec2967782371607434f1f3322497b1d0e63ca",
+          "sha1": "862320178695f599d6225ad3ea026120a6d1f4a4",
+          "md5": "bc0129ecb537ba2d229bf56a1945640a"
         }
       ]
     },
