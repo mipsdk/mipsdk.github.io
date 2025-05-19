@@ -1,0 +1,266 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.mips.sdk",
+    "module": "mipsdk",
+    "version": "1.2.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.2.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "mipsdk-1.2.2.aar",
+          "url": "mipsdk-1.2.2.aar",
+          "size": 264570,
+          "sha512": "7f42d7e5487a9bc7f5bdae63bc027cdcc8ab8ee2eb1b62024c952caaf1b8a24359c47335f5e4f880aa089d8c291fe3571b40daffb345add1760a261fb2ac9a58",
+          "sha256": "242076b439a293d26b1fa27efe44fd112038d5b6b08dd196f2b7386bbc9ad151",
+          "sha1": "af827de2e68330ee202a64a6dec3a683b70c734f",
+          "md5": "721e8c4b2286fe7ffb723d338b5e85fe"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.percentlayout",
+          "module": "percentlayout",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "24.1.0"
+          }
+        },
+        {
+          "group": "com.applovin.mediation",
+          "module": "google-adapter",
+          "version": {
+            "requires": "24.1.0.0"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "*"
+            }
+          ],
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "google-adapter",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "com.applovin.mediation",
+          "module": "google-ad-manager-adapter",
+          "version": {
+            "requires": "24.1.0.0"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "*"
+            }
+          ],
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "google-ad-manager-adapter",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "com.tradplusad",
+          "module": "tradplus-googlex",
+          "version": {
+            "requires": "2.13.8.0.1"
+          }
+        },
+        {
+          "group": "com.applovin",
+          "module": "applovin-sdk",
+          "version": {
+            "requires": "13.2.0"
+          }
+        },
+        {
+          "group": "com.tradplusad",
+          "module": "tradplus-applovin",
+          "version": {
+            "requires": "9.13.8.0.1"
+          }
+        },
+        {
+          "group": "com.google.ads.mediation",
+          "module": "applovin",
+          "version": {
+            "requires": "13.2.0.1"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "*"
+            }
+          ],
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "applovin",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "androidx.legacy",
+          "module": "legacy-support-v4",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.3.0-alpha02"
+          }
+        },
+        {
+          "group": "com.tradplusad",
+          "module": "tradplus",
+          "version": {
+            "requires": "13.8.0.1"
+          }
+        },
+        {
+          "group": "com.tradplusad",
+          "module": "tp_exchange",
+          "version": {
+            "requires": "40.13.8.0.1"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.6"
+          }
+        },
+        {
+          "group": "com.tradplusad",
+          "module": "tradplus-crosspromotion",
+          "version": {
+            "requires": "27.13.8.0.1"
+          }
+        },
+        {
+          "group": "com.bigossp",
+          "module": "bigo-ads",
+          "version": {
+            "requires": "5.2.1"
+          }
+        },
+        {
+          "group": "com.applovin.mediation",
+          "module": "bigoads-adapter",
+          "version": {
+            "requires": "5.2.1.0"
+          }
+        },
+        {
+          "group": "com.tradplusad",
+          "module": "tradplus-bigo",
+          "version": {
+            "requires": "57.13.8.0.1"
+          }
+        },
+        {
+          "group": "com.bigossp",
+          "module": "admob-mediation",
+          "version": {
+            "requires": "5.2.1.0"
+          },
+          "excludes": [
+            {
+              "group": "*",
+              "module": "*"
+            }
+          ],
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "admob-mediation",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "mipsdk-1.2.2.aar",
+          "url": "mipsdk-1.2.2.aar",
+          "size": 264570,
+          "sha512": "7f42d7e5487a9bc7f5bdae63bc027cdcc8ab8ee2eb1b62024c952caaf1b8a24359c47335f5e4f880aa089d8c291fe3571b40daffb345add1760a261fb2ac9a58",
+          "sha256": "242076b439a293d26b1fa27efe44fd112038d5b6b08dd196f2b7386bbc9ad151",
+          "sha1": "af827de2e68330ee202a64a6dec3a683b70c734f",
+          "md5": "721e8c4b2286fe7ffb723d338b5e85fe"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      }
+    }
+  ]
+}
