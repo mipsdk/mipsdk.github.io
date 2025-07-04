@@ -26,6 +26,6 @@ git commit -m "1. upload maven files"
 
 echo "push $BRANCH -> $REMOTE_URL"
 
-git push -u origin master
+git push -u origin HEAD
 
 echo "Upload script execute over ..."
