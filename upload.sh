@@ -20,6 +20,8 @@ BRANCH=$(git branch)
 
 echo "BRANCH = $BRANCH"
 
+git status --porcelain
+
 git add .
 
 git commit -m "1. upload maven files"
