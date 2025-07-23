@@ -1,0 +1,303 @@
+// 广告配置文件，各个广告平台的依赖
+def TRADPLUS = "tradplus"
+def ADMOB = "admob"
+def FACEBOOK = "facebook"
+def APPLOVIN = "applovin"
+def PANGLE = "pangle"
+def UNITY = "unity"
+def VUNGLE = "vungle"
+def IRONSOURCE = "ironsource"
+def MINTEGRAL = "mintegral"
+def CHARTBOOST = "chartboost"
+def FYBER = "fyber"
+def BIGO = "bigo"
+def YANDEX = "yandex"
+def MYTARGET = "mytarget"
+def BIDMACHINE = "bidmachine"
+def SMAATO = "smaato"
+def VERVE = "verve"
+
+def current_platform_array = null
+
+if (ext.has('network')) {
+    current_platform_array = ext['network']
+}
+
+def isContainPlatform(platform_array, platform) {
+    try {
+        if (platform_array != null && !platform_array.isEmpty()) {
+            return platform_array.contains(platform)
+        }
+    } catch (Exception e) {
+        println "platform_array error : " + e
+    }
+    return true
+}
+
+dependencies {
+    // percentlayout广告布局文件在使用
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+
+    if (isContainPlatform(current_platform_array, ADMOB)) {
+        implementation 'com.google.android.gms:play-services-ads:24.4.0'
+        // admob applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:google-adapter:24.4.0.0@aar'
+            implementation 'com.applovin.mediation:google-ad-manager-adapter:24.4.0.0@aar'
+        }
+        // tradplus mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-googlex:2.14.3.0.1'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, APPLOVIN)) {
+        // AppLovin
+        implementation 'com.applovin:applovin-sdk:13.3.1'
+        // tradplus applovin mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-applovin:9.14.3.0.1'
+        }
+        // admob applovin mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation 'com.google.ads.mediation:applovin:13.3.1.0@aar'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, TRADPLUS)) {
+        // tradplus
+        implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+        implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
+        //TradPlus
+        implementation 'com.tradplusad:tradplus:14.3.0.1'
+        // tradplus adx
+        // adx的广告源adapter，新版本打包平台会默认带上
+        implementation 'com.tradplusad:tp_exchange:40.14.3.0.1'
+        implementation 'com.google.code.gson:gson:2.8.6'
+        // Cross Promotion
+        implementation 'com.tradplusad:tradplus-crosspromotion:27.14.3.0.1'
+    }
+
+    if (isContainPlatform(current_platform_array, FACEBOOK)) {
+        // facebook
+        implementation 'com.facebook.android:audience-network-sdk:6.20.0'
+        // facebook applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:facebook-adapter:6.20.0.0@aar'
+        }
+        // tradplus mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-facebook:1.14.3.0.1'
+        }
+        // facebook admob mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation 'com.google.ads.mediation:facebook:6.20.0.0@aar'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, PANGLE)) {
+        // Pangle
+        implementation 'com.pangle.global:pag-sdk:7.2.0.6'
+        // Pangle applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:bytedance-adapter:7.2.0.6.0@aar'
+        }
+        // Pangle tradplus mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-pangle:19.14.3.0.1'
+        }
+        // Pangle admob mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation 'com.google.ads.mediation:pangle:7.2.0.6.0@aar'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, UNITY)) {
+        // unity
+        implementation 'com.unity3d.ads:unity-ads:4.14.2'
+        // unity applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:unityads-adapter:4.14.2.0@aar'
+        }
+        // tradplus unity mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-unity:5.14.3.0.1'
+        }
+        // google unity mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation 'com.google.ads.mediation:unity:4.14.2.0@aar'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, VUNGLE)) {
+        // vungle
+        implementation 'com.vungle:vungle-ads:7.5.0'
+        // applovin vungle mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:vungle-adapter:7.5.0.2'
+        }
+        // tradplus vungle mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-vunglex:7.14.3.0.1'
+        }
+        // google vungle medation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation 'com.google.ads.mediation:vungle:7.5.0.0@aar'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, IRONSOURCE)) {
+        // ironSource
+        implementation 'com.ironsource.sdk:mediationsdk:8.9.1'
+        // Vungle applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:ironsource-adapter:8.9.1.0.0@aar'
+        }
+        // tradplus mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-ironsource:10.14.3.0.1'
+        }
+        // google ironsource mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation 'com.google.ads.mediation:ironsource:8.9.1.0@aar'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, MINTEGRAL)) {
+        // mintegral
+        // 新依赖方式
+        implementation "com.mbridge.msdk.oversea:mbridge_android_sdk:16.9.71"
+        // mintegral applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:mintegral-adapter:16.9.71.0@aar'
+        }
+        // tradplus mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-mintegralx_overseas:18.14.3.0.1'
+        }
+        // mintegral google mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation('com.google.ads.mediation:mintegral:16.9.71.0@aar')
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, CHARTBOOST)) {
+        // chartboost
+        implementation 'com.chartboost:chartboost-sdk:9.8.3'
+        implementation 'com.chartboost:chartboost-mediation-sdk:4.7.1'
+        implementation 'com.chartboost:chartboost-mediation-adapter-chartboost:4.9.5.0.0'
+        // chartboost applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:chartboost-adapter:9.8.3.0'
+        }
+        // chartboost tradplus mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-helium:30.14.3.0.1'
+        }
+        // chartboost admob mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation('com.google.ads.mediation:chartboost:9.8.3.1@aar')
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, FYBER)) {
+        //  fyber
+        implementation 'com.fyber:marketplace-sdk:8.3.7'
+        // fyber applovin mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:fyber-adapter:8.3.7.0'
+        }
+        // fyber tradplus mediation
+        // tradplus未更新adapter，会导致crash
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-fyber:24.14.3.0.1'
+        }
+        // fyber admob mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation('com.google.ads.mediation:fyber:8.3.7.0@aar')
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, BIGO)) {
+        // Bigo
+        implementation 'com.bigossp:bigo-ads:5.3.0'
+        // applovin Bigo mediation
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:bigoads-adapter:5.3.0.2'
+        }
+        // tradplus Bigo mediation
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-bigo:57.14.3.0.1'
+        }
+        // google bigo mediation
+        if (isContainPlatform(current_platform_array, ADMOB)) {
+            implementation 'com.bigossp:admob-mediation:5.3.0.0@aar'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, YANDEX)) {
+        // Yandex
+        implementation 'com.yandex.android:mobileads:7.13.0'
+        // applovin
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:yandex-adapter:7.13.0.0'
+        }
+        // tradplus
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-yandex:50.14.3.0.1'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, MYTARGET)) {
+        // MyTarget
+        implementation 'com.my.target:mytarget-sdk:5.22.1'
+        // applovin
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:mytarget-adapter:5.22.1.2'
+        }
+        // tradplus
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-mytarget:33.14.3.0.1'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, BIDMACHINE)) {
+        // BidMachine
+        implementation 'io.bidmachine:ads:3.3.0'
+        // applovin
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:bidmachine-adapter:3.3.0.1'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, SMAATO)) {
+        // smaato
+        def smaato_version = "22.7.2"
+        implementation "com.smaato.android.sdk:smaato-sdk:${smaato_version}"
+        implementation "com.smaato.android.sdk:smaato-sdk-banner:${smaato_version}"
+        implementation "com.smaato.android.sdk:smaato-sdk-interstitial:${smaato_version}"
+        implementation "com.smaato.android.sdk:smaato-sdk-rewarded-ads:${smaato_version}"
+        implementation "com.smaato.android.sdk:smaato-sdk-native:${smaato_version}"
+        // applovin
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:smaato-adapter:22.7.2.0'
+        }
+        // tradplus
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-smaato:38.14.3.0.1'
+        }
+    }
+
+    if (isContainPlatform(current_platform_array, VERVE)) {
+        // verve
+        implementation 'net.pubnative:hybid.sdk:3.3.0'
+        // applovin
+        if (isContainPlatform(current_platform_array, APPLOVIN)) {
+            implementation 'com.applovin.mediation:verve-adapter:3.3.0.0'
+        }
+        // tradplus
+        if (isContainPlatform(current_platform_array, TRADPLUS)) {
+            implementation 'com.tradplusad:tradplus-verve:53.14.3.0.1'
+        }
+    }
+}

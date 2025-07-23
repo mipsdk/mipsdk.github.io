@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.script.gradle</groupId>
+  <artifactId>encrypt</artifactId>
+  <versioning>
+    <latest>stable</latest>
+    <release>stable</release>
+    <versions>
+      <version>stable</version>
+    </versions>
+    <lastUpdated>20250723024534</lastUpdated>
+  </versioning>
+</metadata>
